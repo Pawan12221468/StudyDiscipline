@@ -1,0 +1,433 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --brand-primary: #10b981;
+    --brand-light: #ecfdf5;
+    --brand-border: #d1fae5;
+    --brand-ring: rgba(16, 185, 129, 0.25);
+  }
+
+  body {
+    background: radial-gradient(130% 130% at 50% 10%, #f0e7db 0%, #ebe2d3 50%, #ded1be 100%);
+    background-color: #ebe2d3;
+    @apply text-slate-800 font-sans antialiased min-h-screen selection:bg-emerald-200 selection:text-emerald-900;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  }
+
+  /* Custom subtle rounded scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.02);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* ============================================================
+   🧸 TRUE CLAYMORPHISM DESIGN SYSTEM
+   Soft 3D Puffy Tactile Components with Dual-Light Inset & Outset
+   ============================================================ */
+
+/* 1. Base Clay Cards */
+.clay-card {
+  background: #fdfcf9;
+  border-radius: 28px;
+  box-shadow: 
+    0 16px 32px rgba(95, 78, 55, 0.24),
+    0 4px 12px rgba(95, 78, 55, 0.16),
+    0 1px 3px rgba(95, 78, 55, 0.10),
+    inset 2px 2px 5px rgba(255, 255, 255, 0.95),
+    inset -3px -3px 8px rgba(140, 125, 105, 0.16);
+  border: 1.5px solid rgba(255, 255, 255, 0.9);
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.clay-card-hover:hover {
+  transform: translateY(-3px);
+  box-shadow: 
+    0 22px 42px rgba(95, 78, 55, 0.30),
+    0 6px 16px rgba(95, 78, 55, 0.20),
+    0 1px 3px rgba(95, 78, 55, 0.12),
+    inset 2px 2px 5px rgba(255, 255, 255, 0.98),
+    inset -3px -3px 8px rgba(140, 125, 105, 0.20);
+}
+
+/* 2. Pastel Clay Card Variants (All share the same warm dark clay drop elevation) */
+.clay-card-mint {
+  background: linear-gradient(145deg, #f0fdf4 0%, #e1f7e7 100%);
+  border-radius: 28px;
+  box-shadow: 
+    0 16px 32px rgba(95, 78, 55, 0.24),
+    0 4px 12px rgba(95, 78, 55, 0.16),
+    0 1px 3px rgba(95, 78, 55, 0.10),
+    inset 2px 2px 6px rgba(255, 255, 255, 0.95),
+    inset -3px -3px 8px rgba(16, 185, 129, 0.22);
+  border: 1.5px solid rgba(255, 255, 255, 0.9);
+}
+
+.clay-card-lavender {
+  background: linear-gradient(145deg, #faf5ff 0%, #f1e4fe 100%);
+  border-radius: 28px;
+  box-shadow: 
+    0 16px 32px rgba(95, 78, 55, 0.24),
+    0 4px 12px rgba(95, 78, 55, 0.16),
+    0 1px 3px rgba(95, 78, 55, 0.10),
+    inset 2px 2px 6px rgba(255, 255, 255, 0.95),
+    inset -3px -3px 8px rgba(168, 85, 247, 0.22);
+  border: 1.5px solid rgba(255, 255, 255, 0.9);
+}
+
+.clay-card-peach {
+  background: linear-gradient(145deg, #fff1f2 0%, #fde2e4 100%);
+  border-radius: 28px;
+  box-shadow: 
+    0 16px 32px rgba(95, 78, 55, 0.24),
+    0 4px 12px rgba(95, 78, 55, 0.16),
+    0 1px 3px rgba(95, 78, 55, 0.10),
+    inset 2px 2px 6px rgba(255, 255, 255, 0.95),
+    inset -3px -3px 8px rgba(244, 63, 94, 0.22);
+  border: 1.5px solid rgba(255, 255, 255, 0.9);
+}
+
+.clay-card-sky {
+  background: linear-gradient(145deg, #f0f9ff 0%, #e0f2fe 100%);
+  border-radius: 28px;
+  box-shadow: 
+    0 16px 32px rgba(95, 78, 55, 0.24),
+    0 4px 12px rgba(95, 78, 55, 0.16),
+    0 1px 3px rgba(95, 78, 55, 0.10),
+    inset 2px 2px 6px rgba(255, 255, 255, 0.95),
+    inset -3px -3px 8px rgba(14, 165, 233, 0.22);
+  border: 1.5px solid rgba(255, 255, 255, 0.9);
+}
+
+/* 3. Inset / Sunken Clay (Tracks, input fields, active wells) */
+.clay-inset {
+  background: #ded5c4;
+  border-radius: 20px;
+  box-shadow: 
+    inset 4px 5px 9px rgba(135, 120, 100, 0.28),
+    inset -4px -5px 9px rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+}
+
+.clay-inset-sm {
+  background: #ded5c4;
+  border-radius: 14px;
+  box-shadow: 
+    inset 2px 3px 6px rgba(135, 120, 100, 0.24),
+    inset -2px -3px 6px rgba(255, 255, 255, 0.9);
+}
+
+/* 4. Tactile Clay Buttons */
+.clay-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  border: 1.5px solid rgba(255, 255, 255, 0.6);
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  user-select: none;
+}
+
+.clay-btn:hover {
+  transform: translateY(-2px);
+}
+
+.clay-btn:active {
+  transform: translateY(2px) scale(0.97);
+}
+
+/* Emerald / Mint Clay Button (Primary) */
+.clay-btn-emerald {
+  background: linear-gradient(145deg, #34d399 0%, #059669 100%);
+  color: #ffffff;
+  box-shadow: 
+    6px 9px 20px rgba(5, 150, 105, 0.36),
+    -4px -4px 12px rgba(255, 255, 255, 0.75),
+    inset 2px 2px 5px rgba(255, 255, 255, 0.6),
+    inset -2px -2px 6px rgba(4, 120, 87, 0.5);
+}
+.clay-btn-emerald:hover {
+  box-shadow: 
+    8px 12px 24px rgba(5, 150, 105, 0.44),
+    -5px -5px 14px rgba(255, 255, 255, 0.85),
+    inset 2px 2px 5px rgba(255, 255, 255, 0.7),
+    inset -2px -2px 6px rgba(4, 120, 87, 0.5);
+}
+.clay-btn-emerald:active {
+  box-shadow: 
+    inset 3px 3px 6px rgba(0, 0, 0, 0.3),
+    inset -2px -2px 4px rgba(255, 255, 255, 0.4);
+}
+
+/* Amber / Orange Clay Button (Pause / Warning) */
+.clay-btn-amber {
+  background: linear-gradient(145deg, #fbbf24 0%, #d97706 100%);
+  color: #ffffff;
+  box-shadow: 
+    6px 9px 20px rgba(217, 119, 6, 0.36),
+    -4px -4px 12px rgba(255, 255, 255, 0.75),
+    inset 2px 2px 5px rgba(255, 255, 255, 0.6),
+    inset -2px -2px 6px rgba(180, 83, 9, 0.5);
+}
+.clay-btn-amber:hover {
+  box-shadow: 
+    8px 12px 24px rgba(217, 119, 6, 0.44),
+    -5px -5px 14px rgba(255, 255, 255, 0.85);
+}
+.clay-btn-amber:active {
+  box-shadow: 
+    inset 3px 3px 6px rgba(0, 0, 0, 0.3),
+    inset -2px -2px 4px rgba(255, 255, 255, 0.4);
+}
+
+/* Coral / Rose Clay Button (Reset / Danger) */
+.clay-btn-coral {
+  background: linear-gradient(145deg, #fb7185 0%, #e11d48 100%);
+  color: #ffffff;
+  box-shadow: 
+    6px 9px 20px rgba(225, 29, 72, 0.36),
+    -4px -4px 12px rgba(255, 255, 255, 0.75),
+    inset 2px 2px 5px rgba(255, 255, 255, 0.6),
+    inset -2px -2px 6px rgba(190, 18, 60, 0.5);
+}
+.clay-btn-coral:hover {
+  box-shadow: 
+    8px 12px 24px rgba(225, 29, 72, 0.44),
+    -5px -5px 14px rgba(255, 255, 255, 0.85);
+}
+.clay-btn-coral:active {
+  box-shadow: 
+    inset 3px 3px 6px rgba(0, 0, 0, 0.3),
+    inset -2px -2px 4px rgba(255, 255, 255, 0.4);
+}
+
+/* Lavender / Purple Clay Button */
+.clay-btn-lavender,
+.clay-btn-purple {
+  background: linear-gradient(145deg, #a78bfa 0%, #7c3aed 100%);
+  color: #ffffff;
+  box-shadow: 
+    6px 9px 20px rgba(124, 58, 237, 0.36),
+    -4px -4px 12px rgba(255, 255, 255, 0.75),
+    inset 2px 2px 5px rgba(255, 255, 255, 0.6),
+    inset -2px -2px 6px rgba(109, 40, 217, 0.5);
+}
+
+/* White / Neutral Tactile Clay Button */
+.clay-btn-white {
+  background: linear-gradient(145deg, #ffffff 0%, #f6f7fa 100%);
+  color: #334155;
+  box-shadow: 
+    6px 9px 18px rgba(150, 165, 190, 0.25),
+    -4px -4px 12px rgba(255, 255, 255, 0.98),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.95),
+    inset -2px -2px 5px rgba(150, 165, 190, 0.16);
+  border: 1.5px solid rgba(255, 255, 255, 0.9);
+}
+.clay-btn-white:hover {
+  background: #ffffff;
+  color: #0f172a;
+  box-shadow: 
+    8px 12px 22px rgba(150, 165, 190, 0.32),
+    -5px -5px 14px rgba(255, 255, 255, 1);
+}
+.clay-btn-white:active {
+  box-shadow: 
+    inset 3px 3px 6px rgba(150, 165, 190, 0.25),
+    inset -2px -2px 4px rgba(255, 255, 255, 0.9);
+}
+
+/* 5. 3D Circular Stopwatch Clay Dial */
+.clay-dial-plate {
+  border-radius: 9999px;
+  background: radial-gradient(circle at 35% 35%, #ffffff 0%, #f8fafc 55%, #eaf0f7 100%);
+  box-shadow: 
+    20px 28px 56px rgba(150, 165, 192, 0.34),
+    -14px -14px 38px rgba(255, 255, 255, 0.98),
+    inset 6px 6px 14px rgba(255, 255, 255, 0.95),
+    inset -6px -6px 14px rgba(160, 175, 200, 0.24);
+  border: 8px solid #ffffff;
+  transition: all 0.3s ease;
+}
+
+/* 6. Soft Clay Pill Badge */
+.clay-pill {
+  border-radius: 9999px;
+  background: #ffffff;
+  box-shadow: 
+    4px 6px 14px rgba(160, 172, 195, 0.22),
+    -3px -3px 8px rgba(255, 255, 255, 0.95),
+    inset 1.5px 1.5px 3px rgba(255, 255, 255, 0.8),
+    inset -1.5px -1.5px 3px rgba(160, 172, 195, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.clay-pill-active {
+  background: #0f172a;
+  color: #ffffff;
+  box-shadow: 
+    4px 6px 14px rgba(15, 23, 42, 0.25),
+    inset 1.5px 1.5px 3px rgba(255, 255, 255, 0.3),
+    inset -1.5px -1.5px 3px rgba(0, 0, 0, 0.4);
+}
+
+.timer-digits {
+  font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.04em;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+/* 7. Colorful Sidebar Clay Nav Cards (Matches mockup image exactly) */
+.clay-nav-mint {
+  background: linear-gradient(145deg, #a4decb 0%, #83cbb6 100%);
+  color: #0e3b2e;
+  box-shadow: 
+    0 6px 14px rgba(50, 130, 110, 0.35),
+    0 2px 4px rgba(25, 75, 60, 0.16),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.70),
+    inset -2px -2px 5px rgba(45, 110, 95, 0.35);
+  border: 1.5px solid rgba(255, 255, 255, 0.65);
+}
+.clay-nav-mint .clay-icon-badge {
+  background: #235d4d;
+  color: #ffffff;
+  box-shadow: inset 1.5px 1.5px 3px rgba(0, 0, 0, 0.35), inset -1px -1px 2px rgba(255, 255, 255, 0.2);
+}
+
+.clay-nav-peach {
+  background: linear-gradient(145deg, #fba590 0%, #f78972 100%);
+  color: #4a150a;
+  box-shadow: 
+    0 6px 14px rgba(185, 75, 55, 0.35),
+    0 2px 4px rgba(135, 45, 30, 0.16),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.70),
+    inset -2px -2px 5px rgba(160, 50, 30, 0.35);
+  border: 1.5px solid rgba(255, 255, 255, 0.65);
+}
+.clay-nav-peach .clay-icon-badge {
+  background: #8e2b1a;
+  color: #ffffff;
+  box-shadow: inset 1.5px 1.5px 3px rgba(0, 0, 0, 0.35), inset -1px -1px 2px rgba(255, 255, 255, 0.2);
+}
+
+.clay-nav-lavender {
+  background: linear-gradient(145deg, #c9a7fd 0%, #b289fa 100%);
+  color: #2b1150;
+  box-shadow: 
+    0 6px 14px rgba(125, 75, 195, 0.35),
+    0 2px 4px rgba(85, 45, 140, 0.16),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.70),
+    inset -2px -2px 5px rgba(90, 50, 160, 0.35);
+  border: 1.5px solid rgba(255, 255, 255, 0.65);
+}
+.clay-nav-lavender .clay-icon-badge {
+  background: #53248f;
+  color: #ffffff;
+  box-shadow: inset 1.5px 1.5px 3px rgba(0, 0, 0, 0.35), inset -1px -1px 2px rgba(255, 255, 255, 0.2);
+}
+
+.clay-nav-sky {
+  background: linear-gradient(145deg, #8dc3fb 0%, #6ea9f5 100%);
+  color: #0b264e;
+  box-shadow: 
+    0 6px 14px rgba(55, 115, 195, 0.35),
+    0 2px 4px rgba(35, 75, 145, 0.16),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.70),
+    inset -2px -2px 5px rgba(40, 80, 160, 0.35);
+  border: 1.5px solid rgba(255, 255, 255, 0.65);
+}
+.clay-nav-sky .clay-icon-badge {
+  background: #1c4587;
+  color: #ffffff;
+  box-shadow: inset 1.5px 1.5px 3px rgba(0, 0, 0, 0.35), inset -1px -1px 2px rgba(255, 255, 255, 0.2);
+}
+
+.clay-nav-amber {
+  background: linear-gradient(145deg, #fcd555 0%, #fbbe26 100%);
+  color: #481a02;
+  box-shadow: 
+    0 6px 14px rgba(180, 115, 15, 0.35),
+    0 2px 4px rgba(130, 75, 5, 0.16),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.70),
+    inset -2px -2px 5px rgba(150, 90, 10, 0.35);
+  border: 1.5px solid rgba(255, 255, 255, 0.65);
+}
+.clay-nav-amber .clay-icon-badge {
+  background: #78350f;
+  color: #ffffff;
+  box-shadow: inset 1.5px 1.5px 3px rgba(0, 0, 0, 0.35), inset -1px -1px 2px rgba(255, 255, 255, 0.2);
+}
+
+.clay-nav-slate {
+  background: linear-gradient(145deg, #e4eaf0 0%, #cbd6e2 100%);
+  color: #0f172a;
+  box-shadow: 
+    0 6px 14px rgba(95, 115, 135, 0.30),
+    0 2px 4px rgba(55, 75, 95, 0.14),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.70),
+    inset -2px -2px 5px rgba(70, 90, 110, 0.30);
+  border: 1.5px solid rgba(255, 255, 255, 0.65);
+}
+.clay-nav-slate .clay-icon-badge {
+  background: #334155;
+  color: #ffffff;
+  box-shadow: inset 1.5px 1.5px 3px rgba(0, 0, 0, 0.35), inset -1px -1px 2px rgba(255, 255, 255, 0.2);
+}
+
+/* 8. Invisible clean scrollbar */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* 9. Cozy Fluctuating Study Lamp Light Animation (Photorealistic Light Fluctuation) */
+@keyframes lampLightPulse {
+  0%, 100% {
+    opacity: 0.20;
+  }
+  24% {
+    opacity: 0.75;
+  }
+  42% {
+    opacity: 0.30;
+  }
+  60% {
+    opacity: 0.95;
+  }
+  78% {
+    opacity: 0.40;
+  }
+  90% {
+    opacity: 0.80;
+  }
+}
+
+.animate-lamp-light-pulse {
+  animation: lampLightPulse 9.5s ease-in-out infinite;
+}
+
